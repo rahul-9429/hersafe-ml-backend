@@ -12,7 +12,7 @@ CORS(app)
 
 @app.route('/')
 def index():
-    return "HerSafe ML API is running."
+    return "Heyyy, HerSafe ML API is running."
 
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -33,10 +33,19 @@ def predict():
             "dayofweek": dayofweek
         }])
 
-        prediction = model.predict(df)[0]
-        result = "unsafe" if prediction == 1 else "safe"
+        prob_unsafe = model.predict_proba(df)[0][1]
 
-        return jsonify({"prediction": result})
+        if prob_unsafe >= 0.65:
+            result = "unsafe"
+        elif prob_unsafe >= 0.35:
+            result = "moderate"
+        else:
+            result = "safe"
+
+        return jsonify({
+            "prediction": result,
+            "unsafe_probability": round(prob_unsafe, 3)
+        })
     except Exception as e:
         return jsonify({"error": str(e)})
 

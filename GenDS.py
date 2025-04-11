@@ -1,39 +1,44 @@
 import pandas as pd
-import random
+import numpy as np
 from datetime import datetime, timedelta
+import random
 
-# Commonly safe places in Vizag
-safe_locations = [
-    ("RK Beach", 17.7191, 83.3195),
-    ("Kailasagiri", 17.7485, 83.3422),
-    ("Rushikonda Beach", 17.7825, 83.3865),
-    ("Visakha Valley School", 17.7515, 83.3636),
-    ("CMR Central", 17.7399, 83.3017),
-    ("City Central Park", 17.7178, 83.3124),
-    ("Tenneti Park", 17.7464, 83.3513),
-    ("Andhra University", 17.7306, 83.3198),
-    ("Daba Gardens", 17.7099, 83.2975),
-    ("Vizag Railway Station", 17.7041, 83.2936)
-]
+# Set seed
+random.seed(42)
+np.random.seed(42)
 
-# Generate safe data
-def generate_safe_data(num_records=2500):
-    data = []
-    for _ in range(num_records):
-        location, lat, lon = random.choice(safe_locations)
-        date = datetime(2023, 1, 1) + timedelta(days=random.randint(0, 364))
-        time = timedelta(hours=random.randint(6, 18), minutes=random.randint(0, 59))
-        date_time = (date + time).strftime('%Y-%m-%d %H:%M:%S')
-        data.append({
-            "date_time": date_time,
-            "latitude": lat + random.uniform(-0.0005, 0.0005),
-            "longitude": lon + random.uniform(-0.0005, 0.0005),
-            "location": location,
-            "crime_type": "none"
-        })
-    return pd.DataFrame(data)
+def generate_point(lat_range, lon_range, label, crime_type, date_range):
+    date_time = datetime.strptime(random.choice(date_range), "%Y-%m-%d") + timedelta(
+        hours=random.randint(0, 23), minutes=random.randint(0, 59))
+    return {
+        "latitude": round(random.uniform(*lat_range), 6),
+        "longitude": round(random.uniform(*lon_range), 6),
+        "date_time": date_time.strftime("%Y-%m-%d %H:%M:%S"),
+        "crime_type": crime_type,
+        "safety_level": label
+    }
 
-# Generate and save
-df = generate_safe_data()
-df.to_csv("safe_data_vizag.csv", index=False)
-print("✅ Dataset generated and saved.")
+# Vizag range and date range
+lat_range = (17.65, 17.80)
+lon_range = (83.20, 83.35)
+date_range = pd.date_range("2023-01-01", "2023-12-31").strftime("%Y-%m-%d").tolist()
+
+data = []
+
+# Safe: 850
+for _ in range(850):
+    data.append(generate_point(lat_range, lon_range, 0, "None", date_range))
+
+# Moderate: 850
+for _ in range(850):
+    data.append(generate_point(lat_range, lon_range, 1, random.choice(["theft", "minor altercation"]), date_range))
+
+# Unsafe: 800
+for _ in range(800):
+    data.append(generate_point(lat_range, lon_range, 2, random.choice(["assault", "robbery", "harassment"]), date_range))
+
+# Save
+df = pd.DataFrame(data)
+df = df.sample(frac=1).reset_index(drop=True)
+df.to_csv("visakhapatnam_balanced_crime_data.csv", index=False)
+print("✅ Dataset created and saved!")
