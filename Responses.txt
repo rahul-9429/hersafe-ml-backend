@@ -1,0 +1,94 @@
+gitam location
+17.782115, 83.376331
+
+req {
+    "latitude":"17.782115",
+    "longitude":"83.376331",
+    "date_time":"2025-06-12 14:13:57"
+}
+
+
+safe
+
+Request #1 | Input: {'latitude': 17.733933, 'longitude': 83.331336, 'date_time': '2025-06-26 22:05:46'}
+Response: {'prediction': 'safe', 'unsafe_probability': 0.207} 
+
+Request #3 | Input: {'latitude': 17.739671, 'longitude': 83.336385, 'date_time': '2025-06-20 22:05:46'}
+Response: {'prediction': 'safe', 'unsafe_probability': 0.233} 
+
+Request #4 | Input: {'latitude': 17.703626, 'longitude': 83.291784, 'date_time': '2025-06-05 09:05:46'}
+Response: {'prediction': 'safe', 'unsafe_probability': 0.273} 
+
+Request #5 | Input: {'latitude': 17.746143, 'longitude': 83.341598, 'date_time': '2025-06-14 17:05:46'}
+Response: {'prediction': 'safe', 'unsafe_probability': 0.273}
+
+Request #7 | Input: {'latitude': 17.725946, 'longitude': 83.290075, 'date_time': '2025-06-16 02:05:46'}
+Response: {'prediction': 'safe', 'unsafe_probability': 0.293} 
+
+Request #10 | Input: {'latitude': 17.728445, 'longitude': 83.345785, 'date_time': '2025-06-04 03:05:46'}
+Response: {'prediction': 'safe', 'unsafe_probability': 0.2} 
+
+unsafe 
+
+Request #2 | Input: {'latitude': 17.737905, 'longitude': 83.344681, 'date_time': '2025-06-02 18:13:00'}
+Response: {'prediction': 'unsafe', 'unsafe_probability': 0.653} 
+
+Request #3 | Input: {'latitude': 17.727742, 'longitude': 83.327974, 'date_time': '2025-06-18 07:13:02'}
+Response: {'prediction': 'unsafe', 'unsafe_probability': 0.667} 
+
+Request #4 | Input: {'latitude': 17.738732, 'longitude': 83.316188, 'date_time': '2025-06-23 06:13:04'}
+Response: {'prediction': 'unsafe', 'unsafe_probability': 0.753} 
+
+Request #5 | Input: {'latitude': 17.723555, 'longitude': 83.330776, 'date_time': '2025-06-01 00:13:04'}
+Response: {'prediction': 'unsafe', 'unsafe_probability': 0.687} 
+
+Request #6 | Input: {'latitude': 17.732773, 'longitude': 83.313343, 'date_time': '2025-06-02 05:13:08'}
+Response: {'prediction': 'unsafe', 'unsafe_probability': 0.74} 
+
+Request #7 | Input: {'latitude': 17.726576, 'longitude': 83.288832, 'date_time': '2025-06-22 12:13:10'}
+Response: {'prediction': 'unsafe', 'unsafe_probability': 0.653} 
+
+Request #8 | Input: {'latitude': 17.701695, 'longitude': 83.303812, 'date_time': '2025-06-06 18:13:15'}
+Response: {'prediction': 'unsafe', 'unsafe_probability': 0.82} 
+
+Request #9 | Input: {'latitude': 17.713676, 'longitude': 83.314358, 'date_time': '2025-06-25 18:13:15'}
+Response: {'prediction': 'unsafe', 'unsafe_probability': 0.707} 
+
+Request #10 | Input: {'latitude': 17.731254, 'longitude': 83.282608, 'date_time': '2025-06-23 17:13:16'}
+Response: {'prediction': 'unsafe', 'unsafe_probability': 0.673} 
+
+Request #11 | Input: {'latitude': 17.705396, 'longitude': 83.286556, 'date_time': '2025-06-16 17:13:17'}
+Response: {'prediction': 'unsafe', 'unsafe_probability': 0.687} 
+
+
+moderate 
+
+Request #2 | Input: {'latitude': 17.71751, 'longitude': 83.324332, 'date_time': '2025-06-05 07:13:56'}
+Response: {'prediction': 'moderate', 'unsafe_probability': 0.373} 
+
+Request #3 | Input: {'latitude': 17.708712, 'longitude': 83.32017, 'date_time': '2025-06-17 11:13:56'}
+Response: {'prediction': 'moderate', 'unsafe_probability': 0.453}
+
+Request #4 | Input: {'latitude': 17.713346, 'longitude': 83.32081, 'date_time': '2025-06-09 13:13:57'}
+Response: {'prediction': 'moderate', 'unsafe_probability': 0.4} 
+
+Request #5 | Input: {'latitude': 17.743999, 'longitude': 83.319682, 'date_time': '2025-06-06 04:13:57'}
+Response: {'prediction': 'moderate', 'unsafe_probability': 0.433} 
+
+Request #6 | Input: {'latitude': 17.70313, 'longitude': 83.347009, 'date_time': '2025-05-31 21:13:57'}
+Response: {'prediction': 'moderate', 'unsafe_probability': 0.52} 
+
+Request #7 | Input: {'latitude': 17.74183, 'longitude': 83.295939, 'date_time': '2025-06-17 18:13:57'}
+Response: {'prediction': 'moderate', 'unsafe_probability': 0.353}
+
+Request #8 | Input: {'latitude': 17.722815, 'longitude': 83.307055, 'date_time': '2025-06-12 14:13:57'}
+Response: {'prediction': 'moderate', 'unsafe_probability': 0.427} 
+
+Request #9 | Input: {'latitude': 17.728149, 'longitude': 83.312274, 'date_time': '2025-06-16 10:13:57'}
+Response: {'prediction': 'moderate', 'unsafe_probability': 0.493} 
+
+Request #10 | Input: {'latitude': 17.729577, 'longitude': 83.292696, 'date_time': '2025-06-17 12:13:57'}
+Response: {'prediction': 'moderate', 'unsafe_probability': 0.42} 
+
+Request #11 | Input: {'latitude': 17.732173, 'longitude': 83.290622, 'date_time': '2025-06-20 03:13:57'}
+Response: {'prediction': 'moderate', 'unsafe_probability': 0.56} 

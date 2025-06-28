@@ -21,9 +21,18 @@ def generate_random_request():
         "longitude": lon,
         "date_time": date_time
     }
-
-for i in range(10):
+i=0
+while True:
     payload = generate_random_request()
     response = requests.post(API_URL, json=payload)
-    print(f"Request #{i+1} | Input: {payload}")
-    print("Response:", response.json(), "\n")
+    if response.json()['prediction'] == "moderate":
+        i+=1
+        print(f"Request #{i+1} | Input: {payload}")
+        print("Response:", response.json(), "\n")
+        if i==10:
+            break
+# while True:
+#     payload = generate_random_request()
+#     response = requests.post(API_URL, json=payload)
+#     print(f"Request #{i+1} | Input: {payload}")
+#     print("Response:", response.json(), "\n")
